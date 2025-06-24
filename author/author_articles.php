@@ -19,10 +19,21 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
     header("Location: author_articles.php");
     exit;
 }
+
+$notifQuery = $conn->prepare("SELECT COUNT(*) AS notif FROM articles WHERE author_id = ? AND status != 'Pending' AND reviewed_at >= DATE_SUB(NOW(), INTERVAL 1 DAY)");
+$notifQuery->bind_param('i', $_SESSION['user_id']);
+$notifQuery->execute();
+$notifResult = $notifQuery->get_result()->fetch_assoc();
+$showNotif = $notifResult['notif'] > 0;
 ?>
 
 <div class="container mt-5">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <?php if ($showNotif): ?>
+        <div class="alert alert-success">Beberapa artikel Anda telah ditinjau oleh editor. Silakan periksa status dan komentar.</div>
+    <?php endif; ?>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <h1 class="text-center mb-4">Artikel Berita Anda</h1>
 
     <!-- Notifikasi -->
@@ -156,7 +167,13 @@ if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
                             <td><?php echo htmlspecialchars($row['keywords']); ?></td>
                             <td><?php echo htmlspecialchars($row['category_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['summary']); ?></td>
-                            <td><?php echo ucfirst($row['status']); ?></td>
+                            <td>
+                                <strong><?php echo ucfirst($row['status']); ?></strong><br>
+                                <?php if (!empty($row['editor_comment'])): ?>
+                                    <small class="text-muted">Komentar Editor: <?= htmlspecialchars($row['editor_comment']) ?></small><br>
+                                    <small class="text-muted">Ditinjau: <?= date('d M Y, H:i', strtotime($row['reviewed_at'])) ?></small>
+                                <?php endif; ?>
+                            </td>
                             <td>
                                 <a href="author_view_article.php?id=<?php echo $row['id']; ?>" class="btn btn-info btn-sm">Lihat</a>
                                 <a href="author_edit_article.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-sm">Edit</a>

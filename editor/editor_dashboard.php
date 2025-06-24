@@ -16,7 +16,7 @@ include '../includes/header.php';
 </div>
 
 <div class="container mt-5">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <h1 class="text-center mb-4">Editor Dashboard</h1>
     <div class="row">
         <!-- Section: Manage Articles -->
@@ -25,7 +25,7 @@ include '../includes/header.php';
                 <div class="card-body text-center">
                     <h5 class="card-title">Manage Articles</h5>
                     <p class="card-text">Edit and review articles before publishing.</p>
-                    <a href="editor_articles.php" class="btn btn-primary btn-sm">View Articles</a>
+                    <a href="editor_manage_articles.php" class="btn btn-primary btn-sm">View Articles</a>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@ include '../includes/header.php';
                 <div class="card-body text-center">
                     <h5 class="card-title">Article Reviews</h5>
                     <p class="card-text">Review articles submitted by authors.</p>
-                    <a href="editor_reviews.php" class="btn btn-success btn-sm">Review Articles</a>
+                    <a href="editor_review_articles.php" class="btn btn-success btn-sm">Review Articles</a>
                 </div>
             </div>
         </div>
