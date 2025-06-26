@@ -91,6 +91,11 @@ $result = $stmt->get_result();
                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row['id'] ?>">Edit</button>
                     </td>
                 </tr>
+                <?php if ($result->num_rows === 0): ?>
+                    <tr>
+                        <td colspan="6" class="text-center">Belum ada artikel</td>
+                    </tr>
+                <?php endif; ?>
         </tbody>
     </table>
 
@@ -203,11 +208,6 @@ $result = $stmt->get_result();
         </div>
     </div>
 <?php endwhile; ?>
-<?php if ($result->num_rows === 0): ?>
-    <tr>
-        <td colspan="6" class="text-center">Belum ada artikel</td>
-    </tr>
-<?php endif; ?>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
