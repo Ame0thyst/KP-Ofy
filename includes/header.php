@@ -37,7 +37,8 @@ if (!isset($_SESSION)) {
                         <li class="nav-item"><a class="nav-link" href="author_profile.php">Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="author_articles.php">Articles</a></li>
                     <?php endif; ?>
-                    <li class="nav-item"><a class="nav-link" href="../logout.php">Logout</a></li>
+                    <li class="nav-item"><a class="btn btn-danger btn-sm" href="../logout.php">Logout</a></li>
+                    <!-- <li class="nav-item" ><a class="nav-link" href="../logout.php">Logout</a></li> -->
                 <?php else: ?>
                     <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
                 <?php endif; ?>

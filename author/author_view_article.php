@@ -42,7 +42,7 @@ $thumbnail_file = !empty($article['thumbnail']) ? $article['thumbnail'] : 'defau
             <div class="mb-2 text-muted">
                 <span class="badge bg-secondary"><?php echo htmlspecialchars($article['category_name']); ?></span>
                 <span class="ms-2">Ditulis oleh <strong><?php echo htmlspecialchars($article['author']); ?></strong> pada 
-                    <?php echo date('d M Y, H:i', strtotime($article['created_at'])); ?>
+                    <?php echo date('d M Y, H:i', strtotime($article['published_at'])); ?>
                 </span>
             </div>
 
