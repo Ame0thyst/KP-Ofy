@@ -7,11 +7,6 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'admin') {
     header("Location: login.php");
     exit;
 }
-
-// Tombol Logout
-echo '<div class="text-end mt-3 me-3">
-        <a href="../logout.php" class="btn btn-danger btn-sm">Logout</a>
-      </div>';
 ?>
 
 <div class="container mt-5">

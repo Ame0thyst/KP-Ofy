@@ -9,11 +9,6 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'author') {
 }
 ?>
 
-<!-- Logout Button -->
-<div class="text-end mt-3">
-    <a href="../logout.php" class="btn btn-danger btn-sm">Logout</a>
-</div>
-
 <main class="flex-fill">
 <div class="container mt-5">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -41,6 +36,7 @@ if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] !== 'author') {
 </div>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <?php
 include '../includes/footer.php';
 ?>
